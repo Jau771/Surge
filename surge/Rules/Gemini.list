@@ -1,9 +1,31 @@
 # Gemini 补充规则
-# Source: uncovered Gemini domains and policy override supplements
-# Usage: place this before broader Google rules so exact Gemini hosts take precedence
+# Sources:
+# - https://rawstatic.com/nexitallyy/ProxyRules/main/Extra_AI.list
+# - https://ruleset.skk.moe/List/non_ip/ai.conf (AGPL-3.0)
+# Usage: place this before broader Google/AI rules so Gemini hosts take precedence
 
-DOMAIN,aida.googleapis.com
-DOMAIN,aistudio.google.com
+# Gemini web and legacy Bard/MakerSuite
+DOMAIN-SUFFIX,gemini.google
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,generativeai.google
+
+# Google AI Studio and Gemini API
+DOMAIN,ai.google.dev
+DOMAIN,alkalimakersuite-pa.clients6.google.com
 DOMAIN,alkalicore-pa.clients6.google.com
+DOMAIN,aida.googleapis.com
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,cloudcode-pa.googleapis.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+DOMAIN-SUFFIX,aisandbox-pa.googleapis.com
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
+DOMAIN-SUFFIX,geller-pa.googleapis.com
+
+# Gemini redirect flow used by Google web endpoints (HTTPS requires MITM)
+URL-REGEX,https://www\.google\.com/.*continue=https://gemini\.google\.com.+
+
+# Existing supplements
 DOMAIN,gemini.gstatic.com
-DOMAIN,geller-pa.googleapis.com
